@@ -1,5 +1,5 @@
 public class accData {
-    
+    //this class id for learning purpose
     @AuraEnabled
     public static List<Account> fetchAcc(){
         return [SELECT Id, Name,AccountNumber,Fax,Industry,Phone,Rating,Website,YearStarted FROM Account LIMIT 1];
