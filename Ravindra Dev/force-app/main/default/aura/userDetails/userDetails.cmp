@@ -1,0 +1,18 @@
+<aura:component controller="currentUserData">
+    <aura:handler name="init" value="this" action="{!c.doInit}"/>
+    <aura:attribute name="userData" type="user"/>
+    <div >
+        <div class="slds-box slds-box_x-small slds-m-around_xx-large" style="margin: 80px 440px; padding: 20px 20px 5px; border: double;
+                                                                             background-color: ivory;" >
+            <b style="font-size: 21px; margin-left: 100px;">User Information</b>&nbsp;
+            <div class="slds-box slds-box_x-small"><b>Name :</b>&nbsp;&nbsp;{!v.userData.Name}</div>&nbsp; 
+            <div class="slds-box slds-box_x-small"><b>Username :</b>&nbsp;&nbsp;{!v.userData.Username}</div>&nbsp;
+            <div class="slds-box slds-box_x-small"><b>Country :</b>&nbsp;&nbsp;{!v.userData.Country}</div>&nbsp;
+            <div class="slds-box slds-box_x-small"><b>Company :</b>&nbsp;&nbsp;{!v.userData.CompanyName}</div>&nbsp;
+            <div class="slds-box slds-box_x-small"><b>FirstName :</b>&nbsp;&nbsp;{!v.userData.FirstName}</div>&nbsp;
+            <div class="slds-box slds-box_x-small"><b>LastName :</b>&nbsp;&nbsp;{!v.userData.LastName}</div>&nbsp;
+            <div class="slds-box slds-box_x-small"><b>Phone :</b>&nbsp;&nbsp;{!v.userData.Phone}</div>&nbsp;
+            <div class="slds-box slds-box_x-small"><b>Department :</b>&nbsp;&nbsp;{!v.userData.Department}</div>&nbsp;
+        </div>
+    </div>   
+</aura:component>

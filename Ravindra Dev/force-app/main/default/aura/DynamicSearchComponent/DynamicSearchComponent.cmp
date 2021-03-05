@@ -1,0 +1,67 @@
+<aura:component controller= "dynamicSearchClass">
+    <aura:attribute name="accountName" type="String"/>
+    <aura:attribute name="industry" type="String"/>
+    <aura:attribute name="rtng" type="String"/>
+    <aura:attribute name="rating" type="String[]" default="Hot,Warm,Cold"/>
+    <aura:attribute name="recordList" type="Object" />
+    <div>
+        <fieldset class="slds-form-element slds-form-element_compound">
+            <div class="slds-form-element__control">
+                <div class="slds-form-element__row">
+                    <div class="slds-size_1-of-4">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="accountName">Account Name</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" id="accountName" class="slds-input" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-size_1-of-4">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="industry">Industry</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" id="industry" class="slds-input" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-size_1-of-2">
+                <lightning:select name="select" aura:id="selectRating" value="{!v.rtng}" label="Rating" required="true">
+                    <aura:iteration items="{!v.rating}" var="rating">
+                        <option text="{!rating}"></option>
+                    </aura:iteration>
+                </lightning:select>
+            </div>
+            <div>
+                <lightning:button variant="brand" label="Search" title="Brand action" onclick="{! c.doSearch }" />
+            </div>
+        </fieldset>
+    </div>
+    
+    
+    <div>
+        <div class="slds-grid slds-wrap">
+            <aura:iteration  items="{!v.recordList}" var="acc">
+                <div class="slds-col slds-size_1-of-4 slds-p-around_small">
+                    <lightning:card title="{!acc.Name}" footer="{!acc.Id}"
+                                    iconName="custom:custom11" >
+                        <p class="slds-p-horizontal_small">
+                            <div class="slds-grid slds-gutters">
+                                <!--   <div class="slds-col slds-size_1-of-3">
+                                    <img src="{!$Resource.fromstaticresiurce}" />//to add pic
+                                </div>-->
+                                <div class="slds-col slds-size_2-of-3">
+                                    Name:{!acc.Name} <br/>
+                                    Id:{!acc.Id} <br/>
+                                    Rating :{!acc.Rating}<br/> 
+                                    industry:{!acc.Industry}
+                                </div> 
+                            </div>
+                        </p>
+                    </lightning:card>
+                </div>
+            </aura:iteration>
+        </div>
+    </div>
+</aura:component>

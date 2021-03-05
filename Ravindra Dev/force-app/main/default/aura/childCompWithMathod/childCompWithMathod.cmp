@@ -1,0 +1,7 @@
+<aura:component>
+    <aura:method name="methodName" action="{!c.methodAction}" access="public"><!--Method with Parameters-->
+        <aura:attribute name="parameter1" type="Number" default="1234" />
+        <aura:attribute name="parameter2" type="String" default="Number is"/> 
+        <aura:attribute name="parameter3" type="Object" /> 
+    </aura:method>
+</aura:component>

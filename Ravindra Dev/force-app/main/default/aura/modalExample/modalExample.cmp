@@ -1,0 +1,79 @@
+<aura:component  controller="accData">
+    <aura:handler name="init" value="{!this}" action="{!c.doinit}" />
+    <aura:attribute name="mydata" type="List"/>
+    <aura:attribute name="accName" type="String"/>
+    <aura:attribute name="aid" type="String"/>
+    
+    <div style="margin: 40px 80px;">
+      <lightning:button variant="brand" label="Brand" title="Open Modal" onclick="{!c.showPopup}" />
+
+    </div>
+   
+     <!--Modal Body Start-->
+    <div aura:id="Modalbox" class="slds-hide" style="font-size: medium;">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <aura:iteration items="{!v.mydata}" var="md">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header" style="background: #e2b7b7;">
+                        <a href="javascript:void(0);" onclick="{!c.closePopupModal}"><lightning:icon class="slds-box" style=" margin-left: 97%;margin-bottom: 8px;padding: 1px;color: black;border: 1px black;background-color: white;" iconName="utility:close" alternativeText="Close" title="Close" size="x-small" /></a>
+                    </header>
+                    
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1" style=" padding: 1rem 1rem 0 1rem;">
+                        <div>
+                            <h1><u><b>Account Name: {!md.Name}</b></u></h1>
+                            <p><b>Id :</b>{!md.Id}</p><br/>
+                            <table>
+                                <tr style="border: none;">
+                                    <td>
+                                        <b>P: </b>{!md.Phone}<br/>
+                                        <b>F: </b>{!md.Fax}
+                                    </td>
+                                    <td style="width: 20%;">
+                                        <b> Industry :</b>{!md.Industry}<br/> 
+                                        <b> Rating : </b>{!md.Rating}<br/>
+                                        <b>Website :</b>{!md.Website}
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                            <br/>
+                            <p><b>YearStarted :</b>{!md.YearStarted}</p>
+                            <hr/><br/>
+                        </div>
+                    </div>
+                    
+                    <footer class="slds-modal__footer" style="display: inline-flex;padding-left: 37%;padding-bottom: 5px;padding-top: 5px;background: #e2b7b7;">
+                        <button style="margin-right: 10px;" onclick="{!c.Edit}" data-accid="{!md.Id}">Edit</button>
+                        <button  onclick="{!c.deletePopupModal}" data-name="{!md.Name}" data-aid="{!md.Id}">Delete</button>
+                        <a  onclick="{!c.closePopupModal}" style=" margin: 11px 4px 4px 9px;">Cancel</a>
+                    </footer>
+                </div>
+            </aura:iteration>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+    <!-- Modal Body End -->
+    
+    <!-- Modal delete body Start -->
+    <div aura:id="ModalDelete" class="slds-hide" style="font-size: medium;">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header" style="background: #e2b7b7;padding: 0rem;">
+                    <span class="footerSpan"><b>Are you sure?</b></span>
+                    <a href="javascript:void(0);" class="footerA" onclick="{!c.closeDeletePopupModal}"><lightning:icon class="slds-box" style=" margin-left: 80%;margin-bottom: 8px;padding: 1px;color: black;border: 1px black;background-color: white;" iconName="utility:close" alternativeText="Close" title="Close" size="x-small" /></a>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1" style=" padding: 1rem -1rem 0 1rem;">
+                    <div>
+                        <h1 style="text-align: left"><b>{!v.accName}</b> account removes from the ACCOUNT.</h1>
+                    </div>
+                </div>
+                <footer class="slds-modal__footer" style="display: inline-flex;padding-left: 78%;padding-bottom: 14px;padding-top: 4px;">
+                    <button style="margin-right: 10px;" onclick="{!c.deleteAccount}">Ok</button>  
+                    <button  onclick="{!c.closeDeletePopupModal}">Cancel</button> 
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+    <!-- Modal delete Body End -->
+</aura:component>

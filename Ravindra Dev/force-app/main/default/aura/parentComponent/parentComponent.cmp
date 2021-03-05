@@ -1,0 +1,4 @@
+<aura:component>
+    <c:childCompWithMathod aura:id="id1"/>
+    <lightning:button label=" child method call" onclick="{! c.controllerCAll}" />
+</aura:component>

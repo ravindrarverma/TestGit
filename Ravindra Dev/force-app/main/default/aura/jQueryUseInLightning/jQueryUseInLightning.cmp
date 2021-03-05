@@ -1,0 +1,22 @@
+<aura:component controller="currentUserData">
+    <!-- <ltng:require scripts="/resource/jQuery,/resource/jQueryUI" afterScriptsLoaded="{!c.doInit}"/> -->
+    <ltng:require scripts="{!join(',',
+                           $Resource.jQuery,
+                           $Resource.jQueryUI)}" afterScriptsLoaded="{!c.doInit}"/> 
+    <aura:attribute name="userData" type="user"/>
+    <div >
+        <div class="slds-box slds-box_x-small slds-m-around_xx-large" style="margin: 80px 440px; padding: 20px 20px 5px;" >
+            <b>User Information</b>
+            <ul id="sortable">
+                <li class="slds-box slds-box_x-small"><b>Name :</b>&nbsp;&nbsp;{!v.userData.Name}</li>&nbsp; 
+                <li class="slds-box slds-box_x-small"><b>Username :</b>&nbsp;&nbsp;{!v.userData.Username}</li>&nbsp;
+                <li class="slds-box slds-box_x-small"><b>Country :</b>&nbsp;&nbsp;{!v.userData.Country}</li>&nbsp;
+                <li class="slds-box slds-box_x-small"><b>Company :</b>&nbsp;&nbsp;{!v.userData.CompanyName}</li>&nbsp;
+                <li class="slds-box slds-box_x-small"><b>FirstName :</b>&nbsp;&nbsp;{!v.userData.FirstName}</li>&nbsp;
+                <li class="slds-box slds-box_x-small"><b>LastName :</b>&nbsp;&nbsp;{!v.userData.LastName}</li>&nbsp;
+                <li class="slds-box slds-box_x-small"><b>Phone :</b>&nbsp;&nbsp;{!v.userData.Phone}</li>&nbsp;
+                <li class="slds-box slds-box_x-small"><b>Department :</b>&nbsp;&nbsp;{!v.userData.Department}</li>&nbsp;
+            </ul>
+        </div>
+    </div>
+</aura:component>

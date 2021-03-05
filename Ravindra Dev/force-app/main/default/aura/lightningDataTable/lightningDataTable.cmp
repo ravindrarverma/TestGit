@@ -1,0 +1,11 @@
+<aura:component controller="dataTableClass">
+    <aura:attribute name="columnData" type="List"/>
+    <aura:attribute name="conList" type="Contact[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.fetchData}"/>
+    <div class="slds-col slds-size_1-of-1" >
+        <lightning:datatable columns="{! v.columnData }"
+                             data="{! v.conList }"
+                             hideCheckboxColumn="true"
+                             keyField="id" />
+    </div>
+</aura:component>

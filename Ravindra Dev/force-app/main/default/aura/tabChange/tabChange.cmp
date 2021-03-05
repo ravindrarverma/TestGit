@@ -1,0 +1,39 @@
+<aura:component >
+    <aura:attribute name="colors" type="String[]" default="Red,Green,Blue"/>
+    <div class="slds-col slds-size_1-of-3">
+        <lightning:select aura:id="select" name="select" label="Select a Color" required="true"  onchange="{! c.dropDownChange }">
+            <aura:iteration items="{!v.colors}" var="color">
+                <option text="{!color}"></option>
+            </aura:iteration>
+        </lightning:select>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span3">
+                <div style="">
+                    <div class="sub-tabs well well-lg">
+                        <ul id="tabs">
+                            <li><a aura:id="btn1" class="tablinks" onclick="{!c.openTab}" data-value="tab1" >TAB 1</a></li>
+                            <li><a aura:id="btn2" class="tablinks" onclick="{!c.openTab}"  data-value="tab2">TAB 2</a></li>
+                            <li><a aura:id="btn3" class="tablinks" onclick="{!c.openTab}"  data-value="tab3">TAB 3</a></li>
+                        </ul>
+                        <div id="content">
+                            <div aura:id="tab1" class="slds-hide">
+                                <h3>Tab1 Data</h3>
+                                <p>Data 1.</p>
+                            </div>
+                            <div aura:id="tab2" class="slds-hide">
+                                <h3>Tab2 Data</h3>
+                                <p>Data 2.</p>
+                            </div>
+                            <div aura:id="tab3" class="slds-hide">
+                                <h3>Tab3 Data</h3>
+                                <p>Data 3.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

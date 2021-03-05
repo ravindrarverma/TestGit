@@ -1,0 +1,49 @@
+<aura:component >
+    <aura:attribute name="ChildData" type="List" />
+    <div>
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Account Id">Account Id</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Account Name">Account Name</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Account Number">Account Number</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Phone">Phone</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Industry">Industry</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.ChildData}" var="acc">
+                    <tr class="slds-hint-parent">
+                        <th data-label="Account Id" scope="row">
+                            <div class="slds-truncate" title="Cloudhub">
+                                <a href="javascript:void(0);" tabindex="-1">{!acc.Id}</a>
+                            </div>
+                        </th>
+                        <td data-label="Account Name">
+                            <div class="slds-truncate" title="Name">{!acc.Name}</div>
+                        </td>
+                        <td data-label="Account Number">
+                            <div class="slds-truncate" title="AccountNumber">{!acc.AccountNumber}</div>
+                        </td>
+                        <td data-label="Phone">
+                            <div class="slds-truncate" title="Phone">{!acc.Phone}</div>
+                        </td>
+                        <td data-label="Industry">
+                            <div class="slds-truncate" title="Industry">{!acc.Industry}</div>
+                        </td>
+                    </tr>
+                </aura:iteration>              
+            </tbody>
+        </table>
+    </div>    
+</aura:component>
